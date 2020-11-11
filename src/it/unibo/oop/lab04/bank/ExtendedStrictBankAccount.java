@@ -18,14 +18,17 @@ public class ExtendedStrictBankAccount extends SimpleBankAccount {
 	
 	public void withdraw(final int usrID, final double amount) {
         if (isWithdrawAllowed(amount)) {
+        	//Better super.withdraw
             this.transactionOp(usrID, -amount);
         }
     }
 
+	//Useless
     public void withdrawFromATM(final int usrID, final double amount) {
         this.withdraw(usrID, amount + ExtendedStrictBankAccount.ATM_TRANSACTION_FEE);
     }
     
+    //I could use the super.transactionOp, according to the solutions
     private void transactionOp(final int usrID, final double amount) {
         if (checkUser(usrID)) {
         	this.setBalance(this.getBalance() + amount); 

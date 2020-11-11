@@ -28,6 +28,7 @@ public class RobotWithTwoArms extends BaseRobot implements RobotWithArms {
 	public boolean pickUp() {
 		
 		for (var arm : this.arms) {
+			//need to check the battery
 			if (!arm.isGrabbing()) {
 				arm.pickUp();
 				this.consumeBattery(arm.getConsuptionForPickUp());
